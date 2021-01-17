@@ -6,7 +6,7 @@ export default async (req, res) => {
   const { data } = await http.get(`/users?per_page=10&since=${since}`)
 
   const lastUser = data[data.length-1]
-  const nextPageLink = `${req.protocol}://${req.get('host')}/api/users?since=${lastUser.id}`
+  const nextPageLink = `https://${req.get('host')}/api/users?since=${lastUser.id}`
 
   res.json({
     users: data,
